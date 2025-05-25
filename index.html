@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hong Kong Tamang Ghedung - Connecting and Celebrating Our Culture">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Texturina:ital,opsz,wght@0,12..72,100..900;1,12..72,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preload" as="image" href="Swayambhunath.jpeg">
+    <link rel="preload" as="image" href="result.png">
+    <title>Hong Kong Tamang Ghedung</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Texturina', serif; 
+            background-color: #F9F9F9; /* Light background for contrast */
+            line-height: 1.6;
+        }
+
+        
+        header {
+            padding: 20px 0;
+            min-height: 1000px;
+            width: 100%;
+            background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(Swayambhunath.jpeg);
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }        nav {
+            display: flex;
+            padding: 2% 6%;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        nav .fa {
+            display: none;
+        }
+
+        nav img {
+            height: 150px;
+            border-radius: 10px;
+            margin-right: 20px;
+            display: inline-block;
+        }
+
+        .nav-bar ul {
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .nav-bar ul li {
+            list-style: none;
+            display: inline-block;
+            padding: 12px 16px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-bar ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-bar ul li:hover a {
+            color: #FFD700;
+        }
+
+        .nav-bar ul li::after {
+            content: '';
+            display: block;
+            margin: auto;
+            width: 0%;
+            height: 2px;
+            background: #FFD700;
+            transition: width 0.4s ease;
+        }
+
+        .nav-bar ul li:hover::after {
+            width: 100%; /* Expand underline on hover */
+        }
+
+        .text-container {
+            width: 90%;
+            color: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translate(-50%, -40%); }
+            to { opacity: 1; transform: translate(-50%, -50%); }
+        }
+
+        .text-container h1 {
+            font-size: 62px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .text-container h2 {
+            font-size: 30px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 600px) {
+            .text-container h1 {
+                font-size: 35px;
+            }
+            .text-container h2 {
+                font-size: 15px;
+            }
+            .nav-bar ul li {
+                display: block;
+            }
+
+            nav .fa {
+                display: block;
+                color: #fff;
+                margin: 15px;
+                font-size: 24px;
+                cursor: pointer;
+                z-index: 3;
+            }            .nav-bar {
+                position: fixed;
+                background: rgba(2, 88, 173, 0.95); /* Updated to match brand color */
+                height: 100vh;
+                width: 250px;
+                top: 0;
+                right: -250px;
+                text-align: left;
+                z-index: 2;
+                transition: 0.3s;
+                box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+            }
+
+            .nav-bar ul {
+                padding: 30px;
+            }
+
+            nav a {
+                margin: auto;/* Adjust margin for stacked layout */  
+            }
+
+            .nav-bar ul li:hover::after {
+                width: 100%; /* Expand underline on hover */
+                margin-right: 120px;
+            } 
+            
+        }
+
+        section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+        }
+
+        section h2 {
+            margin-bottom: 40px;
+            font-size: 2em;
+            text-align: center;
+            color: #0258ad;
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: #FFD700;
+            margin: 10px auto;
+        }
+
+        section img {
+            float: left;
+            height: 330px;
+            width: 480px;
+            padding-right: 50px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        section img:hover {
+            transform: scale(1.02);
+        }
+
+        section p {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+        }
+
+        section ul {
+            font-size: 1.3em;
+            padding: 20px 40px;
+        }
+
+        section ul li {
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        section ul li::before {
+            content: '•';
+            color: #FFD700;
+            font-weight: bold;
+            position: absolute;
+            left: -20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 40px;
+            background: #003366;
+            color: #fff;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        footer .social-links {
+            margin: 20px 0;
+        }
+
+        footer .social-links a {
+            font-size: 24px;
+            margin: 0 10px;
+            color: #fff;
+            transition: color 0.3s;
+        }
+
+        footer .social-links a:hover {
+            color: #FFD700;
+        }
+
+        footer a {
+            color: #FFD700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        .language-buttons {
+            display: flex;
+            gap: 10px;
+            margin-right: 20px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 2px solid #FFD700;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn:hover {
+            background: #FFD700;
+            color: #000;
+        }
+
+        .lang-btn.active {
+            background: #FFD700;
+            color: #000;
+        }
+
+        @media (max-width: 600px) {
+            .language-buttons {
+                margin: 10px 0;
+            }
+            
+            .lang-btn {
+                padding: 6px 12px;
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 600px) {
+            section {
+                padding: 20px 15px;
+                margin: 20px 15px;
+            }
+            
+            section img {
+                float: none;
+                width: 100%;
+                height: auto;
+                padding-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            nav img {
+                height: 100px;
+                margin-left: 0;
+            }
+            
+            .nav-bar ul li {
+                margin: 15px 0;
+            }
+            
+            .nav-bar ul li a {
+                font-size: 1.1em;
+                display: block;
+                padding: 10px 0;
+            }
+        }
+    </style>
+    </head>
+
+    <body>
+
+        <header>
+            <nav>
+                <img src="result.png" alt="Tamang Community Logo">            <div class="language-buttons">
+                    <button onclick="changeLanguage('en', false)" class="lang-btn">English</button>
+                    <button onclick="changeLanguage('np', false)" class="lang-btn">नेपाली</button>
+                </div>
+                
+                <div class="nav-bar" id="nav-bar">
+                    <i class="fa fa-times" onclick="hideMenu()"></i>
+                    <ul>
+                        <li><a href="">Home</a></li>
+                        <li><a href="member.html">Members</a></li>
+                        <li><a href="Contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <i class="fa fa-bars" onclick="showMenu()"></i>
+            </nav>
+
+            <div class="text-container">
+                <h1 id="header">HONG KONG TAMANG GHEDUNG</h1>
+                <h2 id="sub-header">Connecting and Celebrating Our Culture</h2>
+            </div>
+            
+        </header>
+
+        <section id="about">
+            <h2>About Us</h2>
+            <img id="img-aboutUs" src="AbouUs.jpg">
+            <p>The Tamang Community is a vibrant and diverse group dedicated to preserving, promoting, and celebrating the rich heritage and culture of the Tamang people. Our community is rooted in deep traditions, values, and a shared history that binds us together.</p>
+
+            <p>Founded on the principles of unity, respect, and inclusivity, we aim to create a welcoming environment where every member feels valued and empowered.</p>
+        </section> 
+
+        <section id="mission">
+            <h2>Our Mission</h2>
+            <p>We strive to:</p>
+            <ul>
+                <li>Preserve Tamang cultural heritage through education and outreach.</li>
+                <li>Organize events that celebrate our traditions, such as festivals, workshops, and cultural performances.</li>
+                <li>Support community members in their endeavors, whether they are related to education, business, or personal growth.</li>
+                <li>Encourage younger generations to engage with and take pride in their cultural identity.</li>
+            </ul>
+        </section>  
+
+        <section id="about2">
+            <h2>Cultural Significance</h2>
+            <p>The Tamang people have a rich history, characterized by unique customs, languages, and traditions. Our community has a profound connection to the Himalayan region, and we celebrate various festivals that reflect our deep-rooted cultural practices. These festivals not only strengthen our community bonds but also serve to educate others about our heritage.</p>
+        </section>   
+
+        <section id="about3">
+            <h2>Activities and Engagement</h2>
+            <p>We actively engage our members through various activities:</p>
+            <ul>
+                <li><strong>Annual Festivals:</strong> Join us for vibrant celebrations that showcase traditional dance, music, and cuisine.</li>
+                <li><strong>Cultural Workshops:</strong> Participate in workshops that focus on traditional crafts, cooking, and language.</li>
+                <li><strong>Community Service:</strong> Get involved in initiatives that aim to uplift and support our community members.</li>
+                <li><strong>Educational Programs:</strong> Attend seminars and discussions that promote awareness of Tamang history and culture.</li>
+            </ul>
+            
+            <p>We invite everyone to join in our celebrations, learn more about our traditions, and contribute to the preservation of our culture. Together, we can create a stronger, more connected Tamang community.</p>
+        </section>        <footer>
+            <p>&copy; 2025 Tamang Community. All rights reserved.</p>
+        <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            </div>
+            <p><a href="#about">Back to Top</a></p>
+        </footer>
+
+        <script>
+
+            const navbar=document.getElementById("nav-bar");
+
+            function showMenu() {
+                navbar.style.right="0";
+
+            }            
+            
+            function hideMenu() {
+                navbar.style.right="-250px";
+            }        
+            
+            function initializeLanguage() {
+                const savedLang = localStorage.getItem('language') || 'en';
+                changeLanguage(savedLang, true);
+            }
+
+            function changeLanguage(lang) {
+
+                localStorage.setItem("language", lang);
+                console.log(localStorage.getItem("language"));
+                
+
+                const buttons = document.querySelectorAll('.lang-btn');
+                buttons.forEach(btn => btn.classList.remove('active'));
+                event.target.classList.add('active');                
+                const translations = {
+                    'np': {
+                        'home-bar':'गृह ',
+                        'members-bar':'सदस्य ',
+                        'contact-bar':'सम्पर्क',
+                        'header': 'हङकङ तामाङ घेडुङ',
+                        'sub-header': 'हाम्रो संस्कृतिको संरक्षण र सम्बर्धन',
+                        'about-title': 'हाम्रो बारेमा',
+                        'about-text1': 'तामाङ समुदाय एक जीवन्त र विविध समूह हो जो तामाङ जनताको समृद्ध परम्परा र संस्कृतिको संरक्षण, प्रवर्द्धन र उत्सव मनाउन समर्पित छ। हाम्रो समुदाय गहिरो परम्परा, मूल्य र साझा इतिहासमा आधारित छ जसले हामीलाई एकसाथ बाँध्छ।',
+                        'about-text2': 'एकता, सम्मान र समावेशिताको सिद्धान्तमा स्थापित, हामी हरेक सदस्यले मूल्यवान र सशक्त महसुस गर्ने स्वागतयोग्य वातावरण सिर्जना गर्न चाहन्छौं।',
+                        'mission-title': 'हाम्रो लक्ष्य',
+                        'mission-intro': 'हामी निम्न कुराहरूको लागि प्रयास गर्छौं:',
+                        'mission-list1': 'शिक्षा र आउटरीच मार्फत तामाङ सांस्कृतिक सम्पदाको संरक्षण।',
+                        'mission-list2': 'उत्सव, कार्यशाला र सांस्कृतिक प्रदर्शन जस्ता हाम्रा परम्पराहरूको उत्सव मनाउने।',
+                        'mission-list3': 'शिक्षा, व्यवसाय वा व्यक्तिगत विकाससँग सम्बन्धित भए पनि समुदायका सदस्यहरूलाई उनीहरूको प्रयासमा समर्थन गर्ने।',
+                        'mission-list4': 'युवा पुस्तालाई आफ्नो सांस्कृतिक पहिचानमा संलग्न हुन र गर्व गर्न प्रोत्साहित गर्ने।',
+                        'cultural-title': 'सांस्कृतिक महत्व',
+                        'cultural-text': 'तामाङ जनताको अनौठो रीतिरिवाज, भाषा र परम्पराले परिचित एक समृद्ध इतिहास छ। हाम्रो समुदायको हिमालय क्षेत्रसँग गहिरो सम्बन्ध छ, र हामी विभिन्न चाडपर्वहरू मनाउँछौं जसले हाम्रो गहिरो जरा गाडेको सांस्कृतिक अभ्यासहरूलाई प्रतिबिम्बित गर्दछ। यी चाडपर्वहरूले हाम्रो सामुदायिक बन्धनलाई बलियो बनाउनुका साथै अरूलाई हाम्रो सम्पदाको बारेमा शिक्षा दिन्छन्।',
+                        'activities-title': 'गतिविधिहरू र संलग्नता',
+                        'activities-intro': 'हामी विभिन्न गतिविधिहरू मार्फत हाम्रा सदस्यहरूलाई सक्रिय रूपमा संलग्न गराउँछौं:',
+                        'activities-list1': 'वार्षिक चाडपर्वहरू: परम्परागत नृत्य, संगीत र खानाको प्रदर्शन गर्ने जीवन्त समारोहहरूमा सामेल हुनुहोस्।',
+                        'activities-list2': 'सांस्कृतिक कार्यशालाहरू: परम्परागत शिल्प, पाक कला र भाषामा केन्द्रित कार्यशालाहरूमा सहभागी हुनुहोस्।',
+                        'activities-list3': 'सामुदायिक सेवा: हाम्रा समुदायका सदस्यहरूलाई उत्थान र समर्थन गर्ने पहलहरूमा संलग्न हुनुहोस्।',
+                        'activities-list4': 'शैक्षिक कार्यक्रमहरू: तामाङ इतिहास र संस्कृतिको बारेमा जागरूकता बढाउने सेमिनार र छलफलहरूमा भाग लिनुहोस्।',
+                        'activities-outro': 'हामी सबैलाई हाम्रा उत्सवहरूमा सामेल हुन, हाम्रा परम्पराहरूको बारेमा थप जान्न र हाम्रो संस्कृतिको संरक्षणमा योगदान गर्न आमन्त्रित गर्दछौं। सँगै, हामी बलियो, थप जोडिएको तामाङ समुदाय बनाउन सक्छौं।'
+                    },
+                    'en': {
+                        'home-bar':'Home',
+                        'members-bar':'Members',
+                        'contact-bar':'Contact',
+                        'header': 'HONG KONG TAMANG GHEDUNG',
+                        'sub-header': 'Connecting and Celebrating Our Culture',
+                        'about-title': 'About Us',
+                        'about-text1': 'The Tamang Community is a vibrant and diverse group dedicated to preserving, promoting, and celebrating the rich heritage and culture of the Tamang people. Our community is rooted in deep traditions, values, and a shared history that binds us together.',
+                        'about-text2': 'Founded on the principles of unity, respect, and inclusivity, we aim to create a welcoming environment where every member feels valued and empowered.',
+                        'mission-title': 'Our Mission',
+                        'mission-intro': 'We strive to:',
+                        'mission-list1': 'Preserve Tamang cultural heritage through education and outreach.',
+                        'mission-list2': 'Organize events that celebrate our traditions, such as festivals, workshops, and cultural performances.',
+                        'mission-list3': 'Support community members in their endeavors, whether they are related to education, business, or personal growth.',
+                        'mission-list4': 'Encourage younger generations to engage with and take pride in their cultural identity.',
+                        'cultural-title': 'Cultural Significance',
+                        'cultural-text': 'The Tamang people have a rich history, characterized by unique customs, languages, and traditions. Our community has a profound connection to the Himalayan region, and we celebrate various festivals that reflect our deep-rooted cultural practices. These festivals not only strengthen our community bonds but also serve to educate others about our heritage.',
+                        'activities-title': 'Activities and Engagement',
+                        'activities-intro': 'We actively engage our members through various activities:',
+                        'activities-list1': 'Annual Festivals: Join us for vibrant celebrations that showcase traditional dance, music, and cuisine.',
+                        'activities-list2': 'Cultural Workshops: Participate in workshops that focus on traditional crafts, cooking, and language.',
+                        'activities-list3': 'Community Service: Get involved in initiatives that aim to uplift and support our community members.',
+                        'activities-list4': 'Educational Programs: Attend seminars and discussions that promote awareness of Tamang history and culture.',
+                        'activities-outro': 'We invite everyone to join in our celebrations, learn more about our traditions, and contribute to the preservation of our culture. Together, we can create a stronger, more connected Tamang community.'
+                    }
+                };                
+                
+                
+                // Update all text content
+
+                // nav bar
+                const navMenu=document.querySelectorAll('#nav-bar ul li a');
+                navMenu[0].textContent=translations[lang]['home-bar'];
+                navMenu[1].textContent=translations[lang]['members-bar']
+                navMenu[2].textContent=translations[lang]['contact-bar']
+
+                // Head Section
+                document.getElementById('header').textContent = translations[lang]['header'];
+                document.getElementById('sub-header').textContent = translations[lang]['sub-header'];
+                
+                // About section
+                document.querySelector('#about h2').textContent = translations[lang]['about-title'];
+                const aboutParagraphs = document.querySelectorAll('#about p');
+                aboutParagraphs[0].textContent = translations[lang]['about-text1'];
+                aboutParagraphs[1].textContent = translations[lang]['about-text2'];
+
+                // Mission section
+                document.querySelector('#mission h2').textContent = translations[lang]['mission-title'];
+                document.querySelector('#mission > p').textContent = translations[lang]['mission-intro'];
+                const missionItems = document.querySelectorAll('#mission ul li');
+                missionItems[0].textContent = translations[lang]['mission-list1'];
+                missionItems[1].textContent = translations[lang]['mission-list2'];
+                missionItems[2].textContent = translations[lang]['mission-list3'];
+                missionItems[3].textContent = translations[lang]['mission-list4'];
+
+                // Cultural section
+                document.querySelector('#about2 h2').textContent = translations[lang]['cultural-title'];
+                document.querySelector('#about2 p').textContent = translations[lang]['cultural-text'];
+
+                // Activities section
+                document.querySelector('#about3 h2').textContent = translations[lang]['activities-title'];
+                document.querySelector('#about3 > p').textContent = translations[lang]['activities-intro'];
+                
+                const activitiesItems = document.querySelectorAll('#about3 ul li');
+                activitiesItems[0].innerHTML = `<strong>${translations[lang]['activities-list1'].split(':')[0]}:</strong> ${translations[lang]['activities-list1'].split(':')[1]}`;
+                activitiesItems[1].innerHTML = `<strong>${translations[lang]['activities-list2'].split(':')[0]}:</strong> ${translations[lang]['activities-list2'].split(':')[1]}`;
+                activitiesItems[2].innerHTML = `<strong>${translations[lang]['activities-list3'].split(':')[0]}:</strong> ${translations[lang]['activities-list3'].split(':')[1]}`;
+                activitiesItems[3].innerHTML = `<strong>${translations[lang]['activities-list4'].split(':')[0]}:</strong> ${translations[lang]['activities-list4'].split(':')[1]}`;
+                
+                const lastParagraph = document.querySelector('#about3 > p:last-of-type');
+                lastParagraph.textContent = translations[lang]['activities-outro'];
+            }
+
+            document.addEventListener('DOMContentLoaded', initializeLanguage);
+
+        </script>
+
+    </body>
+</html>

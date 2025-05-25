@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Meet the members of Hong Kong Tamang Ghedung">    <link rel="preload" as="image" href="Swayambhunath.jpeg">
+    <link rel="preload" as="image" href="result.png">
+    <link rel="preload" as="image" href="profile1.jpg">
+    <link rel="preload" as="image" href="profile2.jpg">
+    <link rel="preload" as="image" href="profile3.jpg">
+    <title>Our Members - Hong Kong Tamang Ghedung</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Texturina:ital,opsz,wght@0,12..72,100..900;1,12..72,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Texturina', serif; 
+            background-color: #F9F9F9; /* Light background for contrast */
+            line-height: 1.6;
+   
+        }
+
+        
+        header {
+            padding: 20px 0;
+            min-height: 1000px;
+            width: 100%;
+            background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(Swayambhunath.jpeg);
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }        
+        
+        nav {
+            display: flex;
+            padding: 2% 6%;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        nav .fa {
+            display: none;
+        }
+
+        nav img {
+            height: 150px;
+            border-radius: 10px;
+            margin-right: 20px;
+            display: inline-block;
+        }
+
+        .nav-bar ul {
+            margin-bottom: 20px;
+            opacity:0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .nav-bar ul li {
+            list-style: none;
+            display: inline-block;
+            padding: 12px 16px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-bar ul li a{
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-bar ul li:hover a {
+            color: #FFD700;
+        }
+
+        .nav-bar ul li::after {
+            content: '';
+            display: block;
+            margin: auto;
+            width: 0%;
+            height: 2px;
+            background: #FFD700; /* Soft Yellow */
+            transition: width 0.4s ease;
+        }
+
+        .nav-bar ul li:hover::after {
+            width: 100%; /* Expand underline on hover */
+        }
+
+        .text-container {
+            width: 90%;
+            color: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translate(-50%, -40%); }
+            to { opacity: 1; transform: translate(-50%, -50%); }
+        }
+
+        .text-container h1 {
+            font-size: 62px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .text-container h2 {
+            font-size: 30px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        
+        .language-buttons {
+            display: flex;
+            gap: 10px;
+            margin-right: 20px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 2px solid #FFD700;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn:hover {
+            background: #FFD700;
+            color: #000;
+        }
+
+        .lang-btn.active {
+            background: #FFD700;
+            color: #000;
+        }
+
+        @media (max-width: 600px) {
+
+            .text-container h1 {
+                font-size: 35px;
+            }
+            .text-container h2 {
+                font-size: 15px;
+            }
+            .nav-bar ul li {
+                display: block;
+            }
+
+            nav .fa {
+                display: block;
+                color: #fff;
+                margin: 15px;
+                font-size: 24px;
+                cursor: pointer;
+                z-index: 3;
+            }
+
+
+            .nav-bar ul {
+                padding: 30px;
+            }            
+            
+            .nav-bar {
+                position: fixed;
+                background: rgba(2, 88, 173, 0.95); /* Updated to match brand color */
+                height: 100vh;
+                width: 250px;
+                top: 0;
+                right: -250px;
+                text-align: left;
+                z-index: 2;
+                transition: 0.3s;
+                box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+            }
+
+            nav a {
+                margin: auto;/* Adjust margin for stacked layout */  
+            }
+
+            .nav-bar ul li:hover::after {
+                width: 100%; /* Expand underline on hover */
+                margin-right: 120px;
+            }  
+
+            .language-buttons {
+                margin: 10px 0;
+            }
+            
+            .lang-btn {
+                padding: 6px 12px;
+                font-size: 0.9em;
+            }  
+        }
+        
+        .members-grid {
+            display:flex;
+            flex-direction: row;
+            justify-content: center;
+            opacity:0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards;
+        
+        }
+
+        .member-card {
+            max-width: 300px;
+            margin: 100px 20px 0 0;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            
+   
+        }
+
+        .member-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            object-fit: cover;
+            border: 4px solid #FFD700;
+            transition: transform 0.3s ease;
+        }
+
+        .member-card:hover .member-image {
+            transform: scale(1.05);
+        }
+
+        .member-name {
+            font-size: 1.5em;
+            color: #0258ad;
+            margin: 10px 0;
+        }
+
+        .member-role {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .member-bio {
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .member-social {
+            display: flex;
+            gap: 15px;
+            margin-top: auto;
+        }
+
+        .member-social a {
+            color: #0258ad;
+            font-size: 1.2em;
+            transition: color 0.3s ease;
+        }
+
+        .member-social a:hover {
+            color: #FFD700;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 400px;
+            background: #003366; /* Dark Green */
+            color: #fff;
+            position: relative;
+            bottom: 0px;
+            width: 100%;
+        }
+
+        footer a {
+            color: #FFD700; 
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline; 
+        }        
+        
+    
+    </style>
+</head>
+<body>
+
+    <header>        
+        <nav>
+            <img src="result.png" alt="Tamang Community Logo">            <div class="language-buttons">
+                <button onclick="changeLanguage('en', false)" class="lang-btn">English</button>
+                <button onclick="changeLanguage('np', false)" class="lang-btn">नेपाली</button>
+            </div>
+            <div class="nav-bar" id="nav-bar">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="member.html">Members</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+
+        <div class="text-container">
+            <h1>HONG KONG TAMANG GHEDUNG</h1>
+            <h2 id="sub-header">Connecting and Celebrating Our Culture</h2>
+        </div>
+        
+    
+    </header>
+
+
+    
+        <div class="members-grid">
+            <div class="member-card">
+                <img src="profile1.jpg" alt="Member Name" class="member-image">
+                <h3 class="member-name">John Tamang</h3>
+                <p class="member-role">President</p>
+                <div class="member-social">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="profile2.jpg" alt="Member Name" class="member-image">
+                <h3 class="member-name">Sarah Tamang</h3>
+                <p class="member-role">Vice President</p>
+                <div class="member-social">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="profile3.jpg" alt="Member Name" class="member-image">
+                <h3 class="member-name">Michael Tamang</h3>
+                <p class="member-role">Secretary</p>
+                <div class="member-social">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+    <footer>
+        <p>&copy; 2025 Hong Kong Tamang Ghedung. All rights reserved.</p>
+    <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        </div>
+        <p><a href="#top">Back to Top</a></p>
+    </footer>
+
+    <script>
+
+        const navbar = document.getElementById("nav-bar");
+
+        function showMenu() {
+            navbar.style.right = "0";
+        }
+
+        function hideMenu() {
+            navbar.style.right = "-250px";
+        }
+        
+
+        // Add animation delay to member cards
+        document.querySelectorAll('.member-card').forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.2}s`;
+        });        
+        
+        function initializeLanguage() {
+            const savedLang = localStorage.getItem('language') || 'en';
+            changeLanguage(savedLang, true);
+        }
+        
+        function changeLanguage(lang, isInitial = false) {
+            // Store language preference
+            localStorage.setItem('language', lang);
+            
+            // Update button states
+            const buttons = document.querySelectorAll('.lang-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+                if ((!isInitial && btn === event.target) || 
+                    (isInitial && ((lang === 'np' && btn.textContent === 'नेपाली') || 
+                    (lang === 'en' && btn.textContent === 'English')))) {
+                    btn.classList.add('active');
+                }
+            });
+
+            const translations = {
+                'np': {
+                    'header': 'हङकङ तामाङ घेडुङ',
+                    'sub-header': 'हाम्रो संस्कृतिको संरक्षण र सम्बर्धन',
+                    'home-bar': 'गृह ',
+                    'members-bar': 'सदस्य ',
+                    'contact-bar': 'सम्पर्क',
+                    'member-name1': 'जोन तामाङ',
+                    'member-role1': 'अध्यक्ष',
+                    'member-name2': 'साराह तामाङ',
+                    'member-role2': 'उपाध्यक्ष',
+                    'member-name3': 'माइकल तामाङ',
+                    'member-role3': 'सचिव',
+                    'member-bio': 'तामाङ समुदायको विकास र संरक्षणको लागि कार्यरत'
+                },
+                'en': {
+                    'header': 'HONG KONG TAMANG GHEDUNG',
+                    'sub-header': 'Connecting and Celebrating Our Culture',
+                    'home-bar': 'Home',
+                    'members-bar': 'Members',
+                    'contact-bar': 'Contact',
+                    'member-name1': 'John Tamang',
+                    'member-role1': 'President',
+                    'member-name2': 'Sarah Tamang',
+                    'member-role2': 'Vice President',
+                    'member-name3': 'Michael Tamang',
+                    'member-role3': 'Secretary',
+                    'member-bio': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+                }
+            };
+
+            // Update header section
+            document.querySelector('.text-container h1').textContent = translations[lang]['header'];
+            document.querySelector('.text-container h2').textContent = translations[lang]['sub-header'];
+
+            // Update navigation
+            const navLinks = document.querySelectorAll('.nav-bar ul li a');
+            navLinks[0].textContent = translations[lang]['home-bar'];
+            navLinks[1].textContent = translations[lang]['members-bar'];
+            navLinks[2].textContent = translations[lang]['contact-bar'];
+
+            // Update member cards
+            const memberCards = document.querySelectorAll('.member-card');
+            memberCards.forEach((card, index) => {
+                const nameKey = `member-name${index + 1}`;
+                const roleKey = `member-role${index + 1}`;
+                
+                card.querySelector('.member-name').textContent = translations[lang][nameKey];
+                card.querySelector('.member-role').textContent = translations[lang][roleKey];
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', initializeLanguage);
+    </script>
+
+</body>
+</html>

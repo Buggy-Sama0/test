@@ -427,7 +427,9 @@
     function initializeLanguage() {
         const savedLang = localStorage.getItem('language') || 'en';
         changeLanguage(savedLang, true);
-    }    function changeLanguage(lang, isInitial = false) {
+    }    
+    
+    function changeLanguage(lang, isInitial = false) {
             // Store language preference
             localStorage.setItem('language', lang);
             
@@ -451,12 +453,7 @@
                     'contact-bar': 'सम्पर्क',
                     'contact-title': 'सम्पर्कमा रहनुहोस्',
                     'contact-intro': 'यदि तपाईंसँग कुनै प्रश्न छ वा संलग्न हुन चाहनुहुन्छ भने, कृपया हामीलाई सम्पर्क गर्नुहोस्:',
-                    'name-label': 'पूरा नाम',
-                    'email-label': 'इमेल',
-                    'subject-label': 'विषय',
-                    'message-label': 'सन्देश',
-                    'submit-btn': 'सन्देश पठाउनुहोस्',
-                    'other-contact': 'सम्पर्कका अन्य माध्यमहरू'
+                    'address':'हङकङ, मध्य जिल्ला'
                 },
                 'en': {
                     'header': 'HONG KONG TAMANG GHEDUNG',
@@ -466,12 +463,7 @@
                     'contact-bar': 'Contact',
                     'contact-title': 'Get in Touch',
                     'contact-intro': 'If you have any questions or would like to get involved, please reach out to us:',
-                    'name-label': 'Full Name',
-                    'email-label': 'Email',
-                    'subject-label': 'Subject',
-                    'message-label': 'Message',
-                    'submit-btn': 'Send Message',
-                    'other-contact': 'Other Ways to Connect'
+                    'address': 'Hong Kong, Central District'
                 }
             };
 
@@ -485,20 +477,15 @@
             navLinks[1].textContent = translations[lang]['members-bar'];
             navLinks[2].textContent = translations[lang]['contact-bar'];
 
-            // Update form
-            document.querySelector('main h2').textContent = translations[lang]['contact-title'];
-            document.querySelector('main > p').textContent = translations[lang]['contact-intro'];
-            
-            // Update form labels
-            const labels = document.querySelectorAll('.form-group label');
-            labels[0].textContent = translations[lang]['name-label'];
-            labels[1].textContent = translations[lang]['email-label'];
-            labels[2].textContent = translations[lang]['subject-label'];
-            labels[3].textContent = translations[lang]['message-label'];
-
-            // Update button and other text
-            document.querySelector('.submit-btn').textContent = translations[lang]['submit-btn'];
-            document.querySelector('.contact-info h3').textContent = translations[lang]['other-contact'];
+            // Update Contact Page
+            document.querySelector('main h3').textContent=translations[lang]['contact-title']
+            document.querySelector('main p').textContent=translations[lang]['contact-intro']
+            // Update address while preserving the icon
+            const addressElement = document.querySelector('.contact-info-grid p:first-child');
+            const icon = addressElement.querySelector('i');
+            addressElement.innerHTML = '';
+            addressElement.appendChild(icon);
+            addressElement.appendChild(document.createTextNode(' ' + translations[lang]['address']));
         }
 
         document.addEventListener('DOMContentLoaded', initializeLanguage);

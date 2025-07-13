@@ -192,7 +192,7 @@
                 position: fixed;
                 background: rgba(2, 88, 173, 0.95); /* Updated to match brand color */
                 height: 100vh;
-                width: 250px;
+                width: 198px;
                 top: 0;
                 right: -250px;
                 text-align: left;
@@ -213,8 +213,7 @@
             .language-buttons {
                 margin: 10px 0;
             }
-            
- 
+
         }
         
         .members-grid {
@@ -329,7 +328,7 @@
                     <li><a href="Contact.html">Contact</a></li>
                 </ul>
             </div>
-            <i class="fa fa-bars" onclick="showMenu()"></i>
+            <i class="fa fa-bars" id="side-menu" onclick="showMenu()"></i>
         </nav>
 
         <div class="text-container">
@@ -383,13 +382,16 @@
     <script>
 
         const navbar = document.getElementById("nav-bar");
+        const menu=document.getElementById("side-menu");
 
         function showMenu() {
             navbar.style.right = "0";
+            menu.style.opacity="0"
         }
 
         function hideMenu() {
             navbar.style.right = "-250px";
+            menu.style.opacity="1"
         }
         
 

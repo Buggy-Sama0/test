@@ -49,15 +49,18 @@
     <div class="contact-info">
         
         <div class="contact-info-grid">
-            <p><i class="fas fa-map-marker-alt"></i> Hong Kong, Central District</p>
+            <p>
+                <i class="fas fa-map-marker-alt"></i> <a href="#">Hong Kong, Central District</a>
+            </p>
             <p>
                 <i class="fas fa-phone"></i> <a href="tel:+85284812271">+852 8481 2271</a>
             </p>
             <p>
-                <i class="fas fa-envelope"></i> <a href="mailto:gurkha.forces@gmail.com">info@hktamangghedung.org</a>
-            </p>
-            <p>
                 <i class="fab fa-facebook-f"></i> <a href="https://www.facebook.com/profile.php?id=61554463016407" target="_blank" rel="noopener" aria-label="Facebook">Hong Kong Tamang Ghedung</a>
+            </p>
+                        
+            <p>
+                <i class="fas fa-envelope"></i> <a href="mailto:gurkha.forces@gmail.com">info@hktamangghedung.org</a>
             </p>
         </div>
     </div>
@@ -113,7 +116,9 @@
                     'contact-bar': 'सम्पर्क',
                     'contact-title': 'सम्पर्कमा रहनुहोस्',
                     'contact-intro': 'यदि तपाईंसँग कुनै प्रश्न छ वा संलग्न हुन चाहनुहुन्छ भने, कृपया हामीलाई सम्पर्क गर्नुहोस्:',
-                    'address':'हङकङ, मध्य जिल्ला'
+                    'address':'हङकङ, मध्य जिल्ला',
+                    'mobile-number': '+८५२ ८४८१ २२७१',
+                    'facebook':'हङकङ तामाङ गेडुङ'
                 },
                 'en': {
                     'header': 'HONG KONG TAMANG GHEDUNG',
@@ -123,7 +128,9 @@
                     'contact-bar': 'Contact',
                     'contact-title': 'Get in Touch',
                     'contact-intro': 'If you have any questions or would like to get involved, please reach out to us:',
-                    'address': 'Hong Kong, Central District'
+                    'address': 'Hong Kong, Central District',
+                    'mobile-number': '+852 8481 2271',
+                    'facebook':'Hong Kong Tamang Ghedung'
                 }
             };
 
@@ -140,12 +147,30 @@
             // Update Contact Page
             document.querySelector('main h3').textContent=translations[lang]['contact-title']
             document.querySelector('main p').textContent=translations[lang]['contact-intro']
-            // Update address while preserving the icon
-            const addressElement = document.querySelector('.contact-info-grid p:first-child');
-            const icon = addressElement.querySelector('i');
-            addressElement.innerHTML = '';
-            addressElement.appendChild(icon);
-            addressElement.appendChild(document.createTextNode(' ' + translations[lang]['address']));
+            
+            // Update all information while preserving the icon
+            const addressElement = document.querySelectorAll('.contact-info-grid p');
+            for (let i=0;i<addressElement.length;i++) {
+                const link=addressElement[i].querySelector('a')
+                switch(i) {
+                    case 0:
+                        link.textContent=translations[lang]['address'];
+                        break;
+                    case 1:
+                        link.textContent=translations[lang]['mobile-number'];
+                        break;
+                    case 2:
+                        link.textContent=translations[lang]['facebook'];
+                        break;
+                }
+            }
+            
+            
+            
+            
+
+
+            
         }
 
         document.addEventListener('DOMContentLoaded', initializeLanguage);

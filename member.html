@@ -64,7 +64,7 @@
             <div class="member-card">
                 <img src="./Profile Img/Waiba Kamali.png" alt="Member Name" class="member-image">
                 <h3 class="member-namme">Waiba kamali</h3>
-                <p class="member-role">Voice President</p>
+                <p class="member-role">Vice President</p>
                 <div class="member-social">
                     <a href="https://www.facebook.com/kamaliwaiba1" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
                 </div>
@@ -172,17 +172,26 @@
             const translations = {
                 'np': {
                     'header': 'हङकङ तामाङ घेडुङ',
-                    'sub-header': 'हाम्रो संस्कृतिको संरक्षण र सम्बर्धन',
-                    'home-bar': 'गृह ',
-                    'members-bar': 'सदस्य ',
+                    'sub-header': 'हाम्रो संस्कृतिलाई जोड्दै र उत्सव मनाउँदै',
+                    'home-bar': 'गृह',
+                    'members-bar': 'सदस्यहरू',
                     'contact-bar': 'सम्पर्क',
-                    'member-name1': 'जोन तामाङ',
+                    'member-name1': 'कृष्ण थिङ तामाङ',
                     'member-role1': 'अध्यक्ष',
-                    'member-name2': 'साराह तामाङ',
+                    'member-name2': 'निल कुमार वाइबा',
                     'member-role2': 'उपाध्यक्ष',
-                    'member-name3': 'माइकल तामाङ',
-                    'member-role3': 'सचिव',
-                    'member-bio': 'तामाङ समुदायको विकास र संरक्षणको लागि कार्यरत'
+                    'member-name3': 'वैबा कमाली',
+                    'member-role3': 'उपाध्यक्ष',
+                    'member-name4': 'मीना तामाङ',
+                    'member-role4': 'पूर्व अध्यक्ष',
+                    'member-name5': 'विजय थिङ',
+                    'member-role5': 'सचिव',
+                    'member-name6': 'दिव्य लामा',
+                    'member-role6': 'सदस्य',
+                    'member-name7': 'योगेश लामा',
+                    'member-role7': 'सदस्य',
+                    'member-name8': 'मिलन तामाङ',
+                    'member-role8': 'सदस्य',
                 },
                 'en': {
                     'header': 'HONG KONG TAMANG GHEDUNG',
@@ -190,13 +199,22 @@
                     'home-bar': 'Home',
                     'members-bar': 'Members',
                     'contact-bar': 'Contact',
-                    'member-name1': 'John Tamang',
+                    'member-name1': 'Krishna Theeng Tamang',
                     'member-role1': 'President',
-                    'member-name2': 'Sarah Tamang',
+                    'member-name2': 'Nil Kumar Waiba',
                     'member-role2': 'Vice President',
-                    'member-name3': 'Michael Tamang',
-                    'member-role3': 'Secretary',
-                    'member-bio': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+                    'member-name3': 'Waiba Kamali',
+                    'member-role3': 'Vice President',
+                    'member-name4': 'Mina Tamang',
+                    'member-role4': 'Former President',
+                    'member-name5': 'Bijay Theeng',
+                    'member-role5': 'Secretary',
+                    'member-name6': 'Dibya Lama',
+                    'member-role6': 'Membee',
+                    'member-name7': 'Yogesh Lama',
+                    'member-role7': 'Member',
+                    'member-name8': 'Milan Tamang',
+                    'member-role8': 'Member',
                 }
             };
 
@@ -213,11 +231,11 @@
             // Update member cards
             const memberCards = document.querySelectorAll('.member-card');
             memberCards.forEach((card, index) => {
-                const nameKey = `member-name${index + 1}`;
-                const roleKey = `member-role${index + 1}`;
-                
-                card.querySelector('.member-name').textContent = translations[lang][nameKey];
-                card.querySelector('.member-role').textContent = translations[lang][roleKey];
+                const nameKey = `member-name${index+1}`;
+                const roleKey = `member-role${index+1}`;
+
+                card.querySelector('h3').textContent=translations[lang][nameKey];
+                card.querySelector('p').textContent=translations[lang][roleKey];   
             });
         }
 
